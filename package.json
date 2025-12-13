@@ -1,0 +1,21 @@
+{
+  "name": "hono-typed-htmx-test",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.19.7",
+    "@hono/zod-validator": "^0.7.5",
+    "hono": "^4.10.8",
+    "zod": "^4.1.13"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.26",
+    "tsx": "^4.21.0",
+    "typed-htmx": "^0.3.1",
+    "typescript": "^5.9.3"
+  }
+}
