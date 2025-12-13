@@ -11,12 +11,12 @@
   "dependencies": {
     "@hono/node-server": "^1.19.7",
     "@hono/zod-validator": "^0.7.5",
-    "hono": "^4.10.8",
+    "hono": "^4.11.0",
     "zod": "^4.1.13"
   },
   "devDependencies": {
     "@tailwindcss/cli": "^4.1.18",
-    "@types/node": "^20.19.26",
+    "@types/node": "^24.10.3",
     "tailwindcss": "^4.1.18",
     "tsx": "^4.21.0",
     "typed-htmx": "^0.3.1",
