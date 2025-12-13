@@ -2,7 +2,9 @@
   "name": "hono-typed-htmx-test",
   "type": "module",
   "scripts": {
-    "dev": "tsx watch src/index.ts",
+    "dev": "tsx watch src/server.ts",
+    "dev:css": "npx @tailwindcss/cli -i ./src/input.css -o ./static/app.css --watch",
+    "build:css": "npx @tailwindcss/cli -i ./src/input.css -o ./static/app.css --minify",
     "build": "tsc",
     "start": "node dist/index.js"
   },
