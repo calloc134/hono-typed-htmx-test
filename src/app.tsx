@@ -17,11 +17,27 @@ const Layout: FC<PropsWithChildren<{ title: string }>> = (props) => (
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <title>{props.title}</title>
 
-      {/* Tailwind（ビルド成果物） */}
       <link rel="stylesheet" href="/static/app.css" />
 
-      {/* htmx（公式Quick StartのCDN例） */}
-      <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.min.js"></script>
+      <meta
+        name="htmx-config"
+        content={JSON.stringify({
+          allowScriptTags: false,
+          allowEval: false,
+          // htmx 2.x は既定で true ですが、意図を明示するなら入れてOK
+          selfRequestsOnly: true,
+          // 履歴キャッシュを使わないなら 0（任意）
+          historyCacheSize: 0,
+          // HX-Request で partial/full を分岐しているなら推奨
+          historyRestoreAsHxRequest: false,
+        })}
+      />
+
+      <script
+        src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.min.js"
+        integrity="sha384-/TgkGk7p307TH7EXJDuUlgG3Ce1UVolAOFopFekQkkXihi5u/6OCvVKyz1W+idaz"
+        crossorigin="anonymous"
+      ></script>
     </head>
 
     <body class="min-h-screen bg-slate-50 text-slate-900">
