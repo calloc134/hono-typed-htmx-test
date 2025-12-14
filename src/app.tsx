@@ -2,8 +2,8 @@ import { Hono, type Context } from "hono";
 import type { FC, PropsWithChildren } from "hono/jsx";
 import type { JSX } from "hono/jsx/jsx-runtime";
 import { serveStatic } from "@hono/node-server/serve-static";
-import { z } from "zod";
-import { zValidator } from "@hono/zod-validator";
+import { sValidator } from "@hono/standard-validator";
+import * as v from "valibot";
 
 type Todo = { id: string; title: string };
 const todos: Todo[] = [];
@@ -73,8 +73,8 @@ const TodoList: FC<{ todos: Todo[] }> = ({ todos }) => (
   </ul>
 );
 
-const schema = z.object({
-  title: z.string().min(1).max(100),
+const schema = v.object({
+  title: v.pipe(v.string(), v.minLength(1), v.maxLength(100)),
 });
 
 const app = new Hono();
@@ -127,7 +127,7 @@ app.get("/", (c) => {
 app.get("/todos", (c) => c.html(<TodoList todos={todos} />));
 
 // 追加：htmxなら<li>だけ返して追加、非htmxならリダイレクト
-app.post("/todos", zValidator("form", schema), (c) => {
+app.post("/todos", sValidator("form", schema), (c) => {
   const { title } = c.req.valid("form");
   const todo: Todo = { id: crypto.randomUUID(), title };
   todos.push(todo);

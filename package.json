@@ -10,9 +10,9 @@
   },
   "dependencies": {
     "@hono/node-server": "^1.19.7",
-    "@hono/zod-validator": "^0.7.5",
+    "@hono/standard-validator": "^0.2.0",
     "hono": "^4.11.0",
-    "zod": "^4.1.13"
+    "valibot": "^1.2.0"
   },
   "devDependencies": {
     "@tailwindcss/cli": "^4.1.18",
