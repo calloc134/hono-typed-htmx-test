@@ -2,19 +2,21 @@
   "name": "hono-typed-htmx-test",
   "type": "module",
   "scripts": {
-    "dev": "tsx watch src/index.ts",
+    "dev": "tsx watch src/server.ts",
+    "dev:css": "npx @tailwindcss/cli -i ./src/input.css -o ./static/app.css --watch",
+    "build:css": "npx @tailwindcss/cli -i ./src/input.css -o ./static/app.css --minify",
     "build": "tsc",
     "start": "node dist/index.js"
   },
   "dependencies": {
     "@hono/node-server": "^1.19.7",
-    "@hono/zod-validator": "^0.7.5",
-    "hono": "^4.10.8",
-    "zod": "^4.1.13"
+    "@hono/standard-validator": "^0.2.0",
+    "hono": "^4.11.0",
+    "valibot": "^1.2.0"
   },
   "devDependencies": {
     "@tailwindcss/cli": "^4.1.18",
-    "@types/node": "^20.19.26",
+    "@types/node": "^24.10.3",
     "tailwindcss": "^4.1.18",
     "tsx": "^4.21.0",
     "typed-htmx": "^0.3.1",
